@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Диана Шеремьёва](https://up.htmlacademy.ru/javascript/21/user/1221707).
-* Наставник: `Неизвестно`.
+* Наставник: `Иван Кривонос`.
 
 ---
 
