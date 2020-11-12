@@ -12,6 +12,12 @@ const MAX_PRICE = 1000;
 const MAX_GUESTS = 10;
 
 const PIN_TEMPLATE = document.querySelector('#pin').content;
+const TYPES = ['palace', 'flat', 'house', 'bungalow'];
+const RAND = getRandom(0, types.length - 1);
+const TIMES = ['12:00', '13:00', '14:00'];
+const FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
+const PHOTOS = ['hotel1.jpg', 'hotel2.jpg', 'hotel3.jpg'];
+
 
 //1
 function getMocks() {
@@ -39,8 +45,8 @@ function getMock(index) {
           features: getFeatures(),
           description: "description",
           photos: getPhotos()},
-          location
-      }
+      },
+      location
   }
 
 
@@ -57,19 +63,14 @@ function getRandom(min, max) {
 }
 
 function getRandType() {
-  const types = ['palace', 'flat', 'house', 'bungalow'];
-  const rand = getRandom(0, types.length - 1);
-  return types[rand];
+  return TYPES[RAND];
 }
 
 function getRandCheckinTime() {
-  const times = ['12:00', '13:00', '14:00'];
-  const rand = getRandom(0, times.length - 1);
-  return times[rand];
+  return TIMES[RAND];
 }
 
 function getFeatures() {
-  const features = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
   const result = [];
   for (let i = 0; i < features.length; i++) {
       if (Math.random() > 0.5) {
@@ -80,7 +81,6 @@ function getFeatures() {
 }
 
 function getPhotos() {
-  const photos = ['hotel1.jpg', 'hotel2.jpg', 'hotel3.jpg'];
   const result = [];
   for (let i = 0; i < photos.length; i++) {
       if (Math.random() > 0.5) {
@@ -103,7 +103,6 @@ function createPin (data) {
   let pinImg = pinElement.querySelector('img');
   pinImg.src = data.author.avatar;
   pinImg.alt = data.offer.title;
-  console.log(pinImg);
   pinElement.style.left = data.location.x + 'px';
   pinElement.style.top = data.location.y + 'px';
   return pinElement;
